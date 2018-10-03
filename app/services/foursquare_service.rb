@@ -1,5 +1,5 @@
 class FoursquareService
-  
+
   def authenticate!(client_id, client_secret, code)
     resp = Faraday.get("https://foursquare.com/oauth2/access_token") do |req|
       req.params['client_id'] = client_id
@@ -11,5 +11,5 @@ class FoursquareService
     body = JSON.parse(resp.body)
     body["access_token"]
   end
-  
+
 end
